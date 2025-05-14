@@ -1,6 +1,6 @@
 from src.simulator import LapSimulator
 from src.strategy import RaceStrategy
-from src.visualiser import plot_strategy
+from visualiser import plot_strategy
 import json
 import os
 import sys
@@ -26,7 +26,7 @@ def load_json(path):
 def main():
     # Load data
     driver = load_json(get_data_path('drivers', 'verstappen.json'))
-    track = load_json(get_data_path('tracks', 'silverstone.json'))
+    track = load_json(get_data_path('tracks', 'monaco.json'))
 
     # Run simulation
     sim = LapSimulator(track, driver)
