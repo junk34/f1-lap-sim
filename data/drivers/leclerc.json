@@ -1,0 +1,8 @@
+{
+  "name": "Charles Leclerc",
+  "aggression": 0.85,
+  "tire_management": 0.66,
+  "fuel_saving": 0.82,
+  "wet_skill": 0.89,
+  "base_lap_time": 82.611
+}
