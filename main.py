@@ -1,6 +1,6 @@
 from src.simulator import LapSimulator
 from src.strategy import RaceStrategy
-from visualiser import plot_strategy
+from src.visualiser import plot_strategy
 import json
 import os
 import sys
