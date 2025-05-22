@@ -1,0 +1,7 @@
+{
+  "name": "Red Bull Ring",
+  "lap_distance": 4.318,
+  "corners": 10,
+  "drs_zones": 3,
+  "tire_wear_factor": 1.0
+}
