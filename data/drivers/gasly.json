@@ -4,5 +4,7 @@
   "tire_management": 0.72,
   "fuel_saving": 0.70,
   "wet_skill": 0.74,
-  "base_lap_time": 83.4
+  "base_lap_time": 83.4,
+  "image_path": "images/drivers/gasly.jpg"
 }
+

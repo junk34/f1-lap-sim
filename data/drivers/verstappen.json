@@ -1,8 +1,11 @@
 {
   "name": "Max Verstappen",
+  "team": "Red Bull",
   "aggression": 0.9,
   "tire_management": 0.7,
   "fuel_saving": 0.6,
   "wet_skill": 0.8,
-  "base_lap_time": 82.3
+  "base_time": 82.3,
+  "image_path": "images/drivers/verstappen.jpg"
 }
+

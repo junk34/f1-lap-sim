@@ -4,5 +4,6 @@
   "tire_management": 0.67,
   "fuel_saving": 0.65,
   "wet_skill": 0.69,
-  "base_lap_time": 84.3
+  "base_lap_time": 84.3,
+  "image_path": "images/drivers/hadjar.jpg"
 }

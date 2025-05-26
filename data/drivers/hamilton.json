@@ -4,6 +4,8 @@
   "tire_management": 0.88,
   "fuel_saving": 0.56,
   "wet_skill": 0.65,
-  "base_lap_time": 82.697
+  "base_lap_time": 82.697,
+  "image_path": "images/drivers/hamilton.jpg"
 }
+
 

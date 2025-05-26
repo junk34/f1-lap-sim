@@ -4,5 +4,7 @@
   "tire_management": 0.68,
   "fuel_saving": 0.73,
   "wet_skill": 0.84,
-  "base_lap_time": 82.988
+  "base_lap_time": 82.988,
+  "image_path": "images/drivers/piastri.jpg"
 }
+

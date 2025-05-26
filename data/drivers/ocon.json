@@ -1,8 +1,9 @@
 {
-  "name": "Oliver Bearman",
+  "name": "Esteban Ocon",
   "aggression": 0.82,
   "tire_management": 0.68,
   "fuel_saving": 0.65,
   "wet_skill": 0.76,
-  "base_lap_time": 83.450
+  "base_lap_time": 83.450,
+  "image_path": "images/drivers/ocon.jpg"
 }

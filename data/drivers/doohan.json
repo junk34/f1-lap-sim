@@ -4,5 +4,7 @@
   "tire_management": 0.70,
   "fuel_saving": 0.68,
   "wet_skill": 0.71,
-  "base_lap_time": 84.0
+  "base_lap_time": 84.0,
+  "image_path": "images/drivers/doohan.jpg"
 }
+

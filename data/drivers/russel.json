@@ -1,8 +1,11 @@
 {
   "name": "George Russell",
-  "aggression": 0.82,
-  "tire_management": 0.75,
-  "fuel_saving": 0.72,
-  "wet_skill": 0.78,
-  "base_lap_time": 83.0
+  "aggression": 0.75,
+  "tire_management": 0.78,
+  "fuel_saving": 0.70,
+  "wet_skill": 0.88,
+  "base_lap_time": 82.920,
+  "image_path": "images/drivers/russell.jpg"
 }
+
+

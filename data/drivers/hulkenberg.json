@@ -4,5 +4,7 @@
   "tire_management": 0.72,
   "fuel_saving": 0.70,
   "wet_skill": 0.73,
-  "base_lap_time": 83.8
+  "base_lap_time": 83.8,
+  "image_path": "images/drivers/hulkenberg.jpg"
 }
+

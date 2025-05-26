@@ -4,5 +4,7 @@
   "tire_management": 0.65,
   "fuel_saving": 0.64,
   "wet_skill": 0.72,
-  "base_lap_time": 83.670
+  "base_lap_time": 83.670,
+  "image_path": "images/drivers/stroll.jpg"
 }
+
