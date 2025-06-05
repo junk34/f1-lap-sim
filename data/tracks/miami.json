@@ -3,5 +3,7 @@
   "lap_distance": 5.412,
   "corners": 19,
   "drs_zones": 3,
-  "tire_wear_factor": 1.1
+  "tire_wear_factor": 1.1,
+  "image_path": "images/track/miami.webp"
 }
+

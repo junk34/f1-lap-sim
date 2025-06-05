@@ -1,0 +1,8 @@
+{
+  "name": "Yas Marina Circuit",
+  "lap_distance": 5.281,
+  "corners": 16,
+  "drs_zones": 2,
+  "tire_wear_factor": 0.9,
+  "image_path": "images/track/abu dhabi.webp"
+}

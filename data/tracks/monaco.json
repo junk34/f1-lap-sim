@@ -1,7 +1,8 @@
 {
   "name": "Circuit de Monaco",
-  "lap_distance": 3.337,  
+  "lap_distance": 3.337,
   "corners": 19,
   "drs_zones": 1,
-  "tire_wear_factor": 1.4  
+  "tire_wear_factor": 1.4,
+  "image_path": "images/track/monaco.webp"
 }

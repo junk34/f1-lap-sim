@@ -3,5 +3,7 @@
   "lap_distance": 4.304,
   "corners": 17,
   "drs_zones": 3,
-  "tire_wear_factor": 1.2
+  "tire_wear_factor": 1.2,
+  "image_path": "images/track/mexico.webp"
 }
+

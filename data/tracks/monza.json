@@ -3,5 +3,7 @@
   "lap_distance": 5.793,
   "corners": 11,
   "drs_zones": 2,
-  "tire_wear_factor": 1.1
+  "tire_wear_factor": 1.1,
+  "image_path": "images/track/monza.webp"
 }
+

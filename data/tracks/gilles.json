@@ -3,5 +3,7 @@
   "lap_distance": 4.361,
   "corners": 14,
   "drs_zones": 2,
-  "tire_wear_factor": 1.1
+  "tire_wear_factor": 1.1,
+  "image_path": "images/track/canada.webp"
 }
+

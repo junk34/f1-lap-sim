@@ -3,5 +3,7 @@
   "lap_distance": 4.909,
   "corners": 19,
   "drs_zones": 1,
-  "tire_wear_factor": 1.2
+  "tire_wear_factor": 1.2,
+  "image_path": "images/track/imola.webp"
 }
+

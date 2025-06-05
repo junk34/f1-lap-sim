@@ -3,5 +3,7 @@
   "lap_distance": 6.003,
   "corners": 20,
   "drs_zones": 2,
-  "tire_wear_factor": 1.2
+  "tire_wear_factor": 1.2,
+  "image_path": "images/track/baku.webp"
 }
+

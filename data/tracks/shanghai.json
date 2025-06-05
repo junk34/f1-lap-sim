@@ -3,5 +3,7 @@
   "lap_distance": 5.451,
   "corners": 16,
   "drs_zones": 2,
-  "tire_wear_factor": 1.2
+  "tire_wear_factor": 1.2,
+  "image_path": "images/track/china.webp"
 }
+

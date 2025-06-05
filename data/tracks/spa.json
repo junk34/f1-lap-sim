@@ -3,5 +3,7 @@
   "lap_distance": 7.004,
   "corners": 19,
   "drs_zones": 2,
-  "tire_wear_factor": 1.4
+  "tire_wear_factor": 1.4,
+  "image_path": "images/tracks/belgium.webp"
 }
+
