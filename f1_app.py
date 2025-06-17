@@ -49,7 +49,7 @@ def get_data_path(*args):
         st.markdown(f'<div class="error-box">Error: Path not found - {path}</div>', unsafe_allow_html=True)
     return path
 
-# JSON file validation function
+# JSON file validation
 def validate_json_folder(folder_path, label):
     issues = []
     if os.path.exists(folder_path):
@@ -68,59 +68,39 @@ def validate_json_folder(folder_path, label):
                     issues.append(f"[{label}] Error reading {f}: {str(e)}")
     return issues
 
-# Run JSON validation and display issues
 driver_issues = validate_json_folder(get_data_path("drivers"), "Driver")
 track_issues = validate_json_folder(get_data_path("tracks"), "Track")
 for issue in driver_issues + track_issues:
     st.warning(issue)
 
-# Load all driver and track data with comprehensive error handling
+# Load data
 @st.cache_data
 def load_data():
-    drivers = {}
-    tracks = {}
+    def load_json_data(folder):
+        data = {}
+        if os.path.exists(folder):
+            for f in sorted(os.listdir(folder)):
+                if f.endswith(".json"):
+                    filepath = os.path.join(folder, f)
+                    try:
+                        with open(filepath, 'r') as file:
+                            content = file.read()
+                            if not content.strip():
+                                st.warning(f"Empty file: {f}")
+                                continue
+                            data[f.replace(".json", "")] = json.loads(content)
+                    except json.JSONDecodeError as e:
+                        st.error(f"Invalid JSON in {f}: {str(e)}")
+                    except Exception as e:
+                        st.error(f"Error loading {f}: {str(e)}")
+        else:
+            st.error(f"Directory not found: {folder}")
+        return data
 
-    drivers_path = get_data_path("drivers")
-    if os.path.exists(drivers_path):
-        for f in sorted(os.listdir(drivers_path)):
-            if f.endswith(".json"):
-                filepath = os.path.join(drivers_path, f)
-                try:
-                    with open(filepath, 'r') as file:
-                        file_content = file.read()
-                        if not file_content.strip():
-                            st.warning(f"Empty file: {f}")
-                            continue
-                        drivers[f.replace(".json", "")] = json.loads(file_content)
-                except json.JSONDecodeError as e:
-                    st.error(f"Invalid JSON in {f}: {str(e)}")
-                except Exception as e:
-                    st.error(f"Error loading {f}: {str(e)}")
-    else:
-        st.error(f"Drivers directory not found at: {drivers_path}")
-
-    tracks_path = get_data_path("tracks")
-    if os.path.exists(tracks_path):
-        for f in sorted(os.listdir(tracks_path)):
-            if f.endswith(".json"):
-                filepath = os.path.join(tracks_path, f)
-                try:
-                    with open(filepath, 'r') as file:
-                        file_content = file.read()
-                        if not file_content.strip():
-                            st.warning(f"Empty file: {f}")
-                            continue
-                        tracks[f.replace(".json", "")] = json.loads(file_content)
-                except json.JSONDecodeError as e:
-                    st.error(f"Invalid JSON in {f}: {str(e)}")
-                except Exception as e:
-                    st.error(f"Error loading {f}: {str(e)}")
-    else:
-        st.error(f"Tracks directory not found at: {tracks_path}")
-
+    drivers = load_json_data(get_data_path("drivers"))
+    tracks = load_json_data(get_data_path("tracks"))
     return drivers, tracks
 
-# Load data
 try:
     drivers, tracks = load_data()
 except Exception as e:
@@ -131,18 +111,15 @@ with st.expander("Debug: View Loaded Data"):
     st.write("Drivers loaded:", list(drivers.keys()))
     st.write("Tracks loaded:", list(tracks.keys()))
 
-# Layout: driver and track
+# Layout
 col1, col2 = st.columns(2)
 
 with col1:
     if drivers:
         driver_name = st.selectbox("DRIVER", options=list(drivers.keys()))
         driver = drivers[driver_name]
-        try:
-            st.image(driver.get("image_path", "default_driver.png"), width=150,
-                     caption=f"{driver_name} - {driver.get('team', 'Unknown Team')}")
-        except FileNotFoundError:
-            st.warning("Driver image not found")
+        st.image(driver.get("image_path", "default_driver.png"), width=150,
+                 caption=f"{driver_name} - {driver.get('team', 'Unknown Team')}")
         st.caption(f"Base Lap Time: {driver.get('base_time', driver.get('base_lap_time', 'N/A'))}s")
     else:
         st.error("No driver data available")
@@ -151,29 +128,23 @@ with col2:
     if tracks:
         track_name = st.selectbox("TRACK", options=list(tracks.keys()))
         track = tracks[track_name]
-        try:
-            st.image(track.get("image_path", "default_track.png"), width=200,
-                     caption=f"{track_name} - {track.get('location', 'Unknown Location')}")
-        except FileNotFoundError:
-            st.warning("Track image not found")
+        st.image(track.get("image_path", "default_track.png"), width=200,
+                 caption=f"{track_name} - {track.get('location', 'Unknown Location')}")
         st.caption(f"Length: {track.get('lap_distance', track.get('length', 'N/A'))}km")
         st.caption(f"Corners: {track.get('corners', 'N/A')}")
     else:
         st.error("No track data available")
 
-# Simulation parameters
+# Parameters
 st.subheader("SIMULATION PARAMETERS")
-fuel = st.slider("FUEL LOAD (kg)", 0, 100, 30, help="Higher fuel load increases lap time")
-wear = st.slider("TIRE WEAR (%)", 0, 100, 10, help="Higher wear degrades performance")
-
+fuel = st.slider("FUEL LOAD (kg)", 0, 100, 30)
+wear = st.slider("TIRE WEAR (%)", 0, 100, 10)
 weather = st.selectbox(
     "WEATHER CONDITIONS",
-    options=["☀️ Clear", "⛅ Cloudy", "🌧️ Wet", "🌧️ Rain", "⛈️ Storm"],
-    help="Weather affects grip and visibility"
-)
-weather = weather.split(" ", 1)[-1]
+    options=["☀️ Clear", "⛅ Cloudy", "🌧️ Wet", "🌧️ Rain", "⛈️ Storm"]
+).split(" ", 1)[-1]
 
-# Run simulation
+# Simulate
 if st.button("SIMULATE LAP", type="primary"):
     if not drivers or not tracks:
         st.error("Cannot simulate - missing driver or track data")
@@ -185,10 +156,8 @@ if st.button("SIMULATE LAP", type="primary"):
             st.markdown("---")
             st.markdown("### SIMULATION RESULT")
             col_res1, col_res2 = st.columns(2)
-            with col_res1:
-                st.metric("DRIVER", f"{driver_name.upper()}")
-            with col_res2:
-                st.metric("TRACK", f"{track_name.upper()}")
+            col_res1.metric("DRIVER", driver_name.upper())
+            col_res2.metric("TRACK", track_name.upper())
 
             base_time = driver.get('base_time', driver.get('base_lap_time', lap_time))
             delta = float(base_time) - lap_time if isinstance(base_time, (int, float)) else 0
@@ -200,7 +169,7 @@ if st.button("SIMULATE LAP", type="primary"):
         except Exception as e:
             st.error(f"Simulation failed: {str(e)}")
 
-# Strategy analysis
+# Strategy
 st.markdown("---")
 if st.button("RUN STRATEGY ANALYSIS", type="secondary"):
     if not drivers or not tracks:
@@ -225,5 +194,3 @@ if st.button("RUN STRATEGY ANALYSIS", type="secondary"):
             st.pyplot(fig)
         except Exception as e:
             st.error(f"Strategy analysis failed: {str(e)}")
-
-
