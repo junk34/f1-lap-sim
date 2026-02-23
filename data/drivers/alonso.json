@@ -1,10 +1,10 @@
 {
   "name": "Fernando Alonso",
-  "aggression": 0.88,
-  "tire_management": 0.81,
-  "fuel_saving": 0.78,
-  "wet_skill": 0.90,
-  "base_lap_time": 82.940,
-  "image_path": "images/drivers/alonso.png"
+  "aggression": 0.89,
+  "tire_management": 0.90,
+  "fuel_saving": 0.88,
+  "wet_skill": 0.93,
+  "base_lap_time": 82.0,
+  "image_path": "images/drivers/alonso.jpg"
 }
 

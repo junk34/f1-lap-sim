@@ -1,9 +1,19 @@
 {
-  "name": "Imola",
+  "name": "Autodromo Enzo e Dino Ferrari",
   "lap_distance": 4.909,
   "corners": 19,
   "drs_zones": 1,
-  "tire_wear_factor": 1.2,
-  "image_path": "images/track/imola.webp"
+  "tire_wear_factor": 1.05,
+  "image_path": "images/track/imola.webp",
+  "segments": [
+    { "type": "straight", "length": 800 },
+    { "type": "corner", "radius": 70, "angle": 80 },
+    { "type": "straight", "length": 500 },
+    { "type": "corner", "radius": 50, "angle": 90 },
+    { "type": "straight", "length": 600 },
+    { "type": "corner", "radius": 40, "angle": 80 },
+    { "type": "straight", "length": 400 },
+    { "type": "corner", "radius": 35, "angle": 70 }
+  ]
 }
 

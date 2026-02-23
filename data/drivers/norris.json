@@ -1,10 +1,10 @@
 {
   "name": "Lando Norris",
-  "aggression": 0.83,
-  "tire_management": 0.72,
-  "fuel_saving": 0.64,
-  "wet_skill": 0.86,
-  "base_lap_time": 82.734,
+  "aggression": 0.88,
+  "tire_management": 0.79,
+  "fuel_saving": 0.78,
+  "wet_skill": 0.92,
+  "base_lap_time": 81.7,
   "image_path": "images/drivers/norris.jpg"
 }
 

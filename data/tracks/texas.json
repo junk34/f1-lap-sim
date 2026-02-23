@@ -3,6 +3,18 @@
   "lap_distance": 5.513,
   "corners": 20,
   "drs_zones": 2,
-  "tire_wear_factor": 1.3
-
+  "tire_wear_factor": 1.05,
+  "image_path": "images/track/texas.webp",
+  "segments": [
+    { "type": "straight", "length": 900 },
+    { "type": "corner", "radius": 80, "angle": 70 },
+    { "type": "straight", "length": 700 },
+    { "type": "corner", "radius": 60, "angle": 90 },
+    { "type": "straight", "length": 600 },
+    { "type": "corner", "radius": 50, "angle": 80 },
+    { "type": "straight", "length": 500 },
+    { "type": "corner", "radius": 40, "angle": 70 }
+  ]
 }
+
+

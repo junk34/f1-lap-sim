@@ -5,7 +5,7 @@ import json
 import os
 import matplotlib.pyplot as plt
 
-# Custom CSS for F1-style
+# -------------------- Custom CSS --------------------
 st.markdown("""
 <style>
     .header-style {
@@ -25,10 +25,6 @@ st.markdown("""
         font-size: 28px !important;
         color: #E10600 !important;
     }
-    .stSelectbox, .stSlider {
-        background-color: #1E1E1E;
-        border-radius: 5px;
-    }
     .error-box {
         background-color: #2D0000;
         padding: 15px;
@@ -38,18 +34,17 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# Header
+# -------------------- Header --------------------
 st.markdown('<p class="header-style">🏎️ F1 LAP SIMULATOR</p>', unsafe_allow_html=True)
 st.markdown('<p class="subheader-style">Select driver and track to simulate lap times</p>', unsafe_allow_html=True)
 
-# Helper to get data path with verification
+# -------------------- Helpers --------------------
 def get_data_path(*args):
     path = os.path.join("data", *args)
     if not os.path.exists(path):
         st.markdown(f'<div class="error-box">Error: Path not found - {path}</div>', unsafe_allow_html=True)
     return path
 
-# JSON file validation
 def validate_json_folder(folder_path, label):
     issues = []
     if os.path.exists(folder_path):
@@ -68,12 +63,7 @@ def validate_json_folder(folder_path, label):
                     issues.append(f"[{label}] Error reading {f}: {str(e)}")
     return issues
 
-driver_issues = validate_json_folder(get_data_path("drivers"), "Driver")
-track_issues = validate_json_folder(get_data_path("tracks"), "Track")
-for issue in driver_issues + track_issues:
-    st.warning(issue)
-
-# Load data
+# -------------------- Data Loading --------------------
 @st.cache_data
 def load_data():
     def load_json_data(folder):
@@ -86,20 +76,21 @@ def load_data():
                         with open(filepath, 'r') as file:
                             content = file.read()
                             if not content.strip():
-                                st.warning(f"Empty file: {f}")
                                 continue
                             data[f.replace(".json", "")] = json.loads(content)
-                    except json.JSONDecodeError as e:
-                        st.error(f"Invalid JSON in {f}: {str(e)}")
-                    except Exception as e:
-                        st.error(f"Error loading {f}: {str(e)}")
-        else:
-            st.error(f"Directory not found: {folder}")
+                    except Exception:
+                        continue
         return data
 
     drivers = load_json_data(get_data_path("drivers"))
     tracks = load_json_data(get_data_path("tracks"))
     return drivers, tracks
+
+# -------------------- Validation --------------------
+driver_issues = validate_json_folder(get_data_path("drivers"), "Driver")
+track_issues = validate_json_folder(get_data_path("tracks"), "Track")
+for issue in driver_issues + track_issues:
+    st.warning(issue)
 
 try:
     drivers, tracks = load_data()
@@ -107,11 +98,12 @@ except Exception as e:
     st.error(f"Failed to load data: {str(e)}")
     st.stop()
 
-with st.expander("Debug: View Loaded Data"):
+# -------------------- Debug --------------------
+with st.expander("🔍 Debug: View Loaded Data"):
     st.write("Drivers loaded:", list(drivers.keys()))
     st.write("Tracks loaded:", list(tracks.keys()))
 
-# Layout
+# -------------------- Selection --------------------
 col1, col2 = st.columns(2)
 
 with col1:
@@ -135,17 +127,14 @@ with col2:
     else:
         st.error("No track data available")
 
-# Parameters
-st.subheader("SIMULATION PARAMETERS")
-fuel = st.slider("FUEL LOAD (kg)", 0, 100, 30)
-wear = st.slider("TIRE WEAR (%)", 0, 100, 10)
-weather = st.selectbox(
-    "WEATHER CONDITIONS",
-    options=["☀️ Clear", "⛅ Cloudy", "🌧️ Wet", "🌧️ Rain", "⛈️ Storm"]
-).split(" ", 1)[-1]
+# -------------------- Parameters --------------------
+st.subheader("🛠️ SIMULATION PARAMETERS")
+fuel = st.slider("Fuel Load (kg)", 0, 100, 30)
+wear = st.slider("Tire Wear (%)", 0, 100, 10)
+weather = st.selectbox("Weather Conditions", ["☀️ Clear", "⛅ Cloudy", "🌧️ Wet", "🌧️ Rain", "⛈️ Storm"]).split(" ", 1)[-1]
 
-# Simulate
-if st.button("SIMULATE LAP", type="primary"):
+# -------------------- Simulation --------------------
+if st.button("🚀 Simulate Lap", type="primary"):
     if not drivers or not tracks:
         st.error("Cannot simulate - missing driver or track data")
     else:
@@ -154,24 +143,27 @@ if st.button("SIMULATE LAP", type="primary"):
             lap_time = sim.calculate_lap_time(tire_wear=wear, fuel_load=fuel, weather=weather)
 
             st.markdown("---")
-            st.markdown("### SIMULATION RESULT")
+            st.markdown("### 🏁 Simulation Result")
             col_res1, col_res2 = st.columns(2)
-            col_res1.metric("DRIVER", driver_name.upper())
-            col_res2.metric("TRACK", track_name.upper())
+            col_res1.metric("Driver", driver_name.upper())
+            col_res2.metric("Track", track_name.upper())
 
             base_time = driver.get('base_time', driver.get('base_lap_time', lap_time))
-            delta = float(base_time) - lap_time if isinstance(base_time, (int, float)) else 0
+            try:
+                delta = float(base_time) - lap_time
+            except:
+                delta = 0
 
-            st.metric("SIMULATED LAP TIME",
+            st.metric("Simulated Lap Time",
                       f"{lap_time:.3f} seconds",
                       delta=f"{delta:.3f}s vs base",
                       delta_color="inverse")
         except Exception as e:
             st.error(f"Simulation failed: {str(e)}")
 
-# Strategy
+# -------------------- Strategy Analysis --------------------
 st.markdown("---")
-if st.button("RUN STRATEGY ANALYSIS", type="secondary"):
+if st.button("📊 Run Strategy Analysis", type="secondary"):
     if not drivers or not tracks:
         st.error("Cannot analyze strategy - missing driver or track data")
     else:
@@ -180,7 +172,7 @@ if st.button("RUN STRATEGY ANALYSIS", type="secondary"):
             strategy = RaceStrategy(sim)
             results = strategy.monte_carlo()
 
-            st.markdown("### STRATEGY ANALYSIS")
+            st.markdown("### 📈 Strategy Analysis")
             cols = st.columns(3)
             cols[0].metric("Best Lap", f"{results['best']:.3f}s")
             cols[1].metric("Average", f"{results['avg']:.3f}s")
@@ -194,3 +186,4 @@ if st.button("RUN STRATEGY ANALYSIS", type="secondary"):
             st.pyplot(fig)
         except Exception as e:
             st.error(f"Strategy analysis failed: {str(e)}")
+

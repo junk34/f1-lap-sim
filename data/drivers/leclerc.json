@@ -1,9 +1,10 @@
 {
   "name": "Charles Leclerc",
-  "aggression": 0.85,
-  "tire_management": 0.66,
-  "fuel_saving": 0.82,
-  "wet_skill": 0.89,
-  "base_lap_time": 82.611,
+  "aggression": 0.91,
+  "tire_management": 0.76,
+  "fuel_saving": 0.77,
+  "wet_skill": 0.90,
+  "base_lap_time": 81.6,
   "image_path": "images/drivers/leclerc.jpg"
 }
+

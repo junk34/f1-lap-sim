@@ -1,0 +1,10 @@
+{
+  "name": "Sergio Perez",
+  "aggression": 0.72,
+  "tire_management": 0.92,
+  "fuel_saving": 0.89,
+  "wet_skill": 0.78,
+  "base_lap_time": 82.9,
+  "image_path": "images/drivers/perez.jpg"
+}
+

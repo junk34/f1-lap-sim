@@ -1,10 +1,10 @@
 {
-  "name": "Autódromo José Carlos Pace",
-  "lap_distance": 4.309,
-  "corners": 15,
+  "name": "Circuit de Barcelona-Catalunya",
+  "lap_distance": 4.657,
+  "corners": 14,
   "drs_zones": 2,
-  "tire_wear_factor": 1.05,
-  "image_path": "images/track/brazil.webp",
+  "tire_wear_factor": 1.10,
+  "image_path": "images/track/spain.webp",
   "segments": [
     { "type": "straight", "length": 800 },
     { "type": "corner", "radius": 70, "angle": 80 },
@@ -16,4 +16,3 @@
     { "type": "corner", "radius": 35, "angle": 70 }
   ]
 }
-

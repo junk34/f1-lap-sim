@@ -1,9 +1,10 @@
 {
   "name": "Isack Hadjar",
-  "aggression": 0.77,
-  "tire_management": 0.67,
-  "fuel_saving": 0.65,
-  "wet_skill": 0.69,
-  "base_lap_time": 84.3,
-  "image_path": "images/drivers/hadjar.webp"
+  "aggression": 0.84,
+  "tire_management": 0.72,
+  "fuel_saving": 0.70,
+  "wet_skill": 0.82,
+  "base_lap_time": 83.3,
+  "image_path": "images/drivers/hadjar.jpg"
 }
+

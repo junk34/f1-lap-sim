@@ -3,6 +3,16 @@
   "lap_distance": 3.337,
   "corners": 19,
   "drs_zones": 1,
-  "tire_wear_factor": 1.4,
-  "image_path": "images/track/monaco.webp"
+  "tire_wear_factor": 0.85,
+  "image_path": "images/track/monaco.webp",
+  "segments": [
+    { "type": "straight", "length": 500 },
+    { "type": "corner", "radius": 40, "angle": 90 },
+    { "type": "straight", "length": 300 },
+    { "type": "corner", "radius": 30, "angle": 80 },
+    { "type": "straight", "length": 250 },
+    { "type": "corner", "radius": 25, "angle": 100 },
+    { "type": "straight", "length": 300 },
+    { "type": "corner", "radius": 35, "angle": 80 }
+  ]
 }

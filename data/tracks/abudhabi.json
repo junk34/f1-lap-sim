@@ -3,6 +3,17 @@
   "lap_distance": 5.281,
   "corners": 16,
   "drs_zones": 2,
-  "tire_wear_factor": 0.9,
-  "image_path": "images/track/abu dhabi.webp"
+  "tire_wear_factor": 0.90,
+  "image_path": "images/track/abu_dhabi.webp",
+  "segments": [
+    { "type": "straight", "length": 900 },
+    { "type": "corner", "radius": 80, "angle": 60 },
+    { "type": "straight", "length": 700 },
+    { "type": "corner", "radius": 50, "angle": 90 },
+    { "type": "straight", "length": 600 },
+    { "type": "corner", "radius": 40, "angle": 70 },
+    { "type": "straight", "length": 500 },
+    { "type": "corner", "radius": 35, "angle": 80 }
+  ]
 }
+

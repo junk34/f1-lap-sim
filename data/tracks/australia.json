@@ -1,0 +1,19 @@
+{
+  "name": "Albert Park Circuit",
+  "lap_distance": 5.278,
+  "corners": 14,
+  "drs_zones": 4,
+  "tire_wear_factor": 1.00,
+  "image_path": "images/track/australia.webp",
+  "segments": [
+    { "type": "straight", "length": 800 },
+    { "type": "corner", "radius": 90, "angle": 70 },
+    { "type": "straight", "length": 650 },
+    { "type": "corner", "radius": 60, "angle": 80 },
+    { "type": "straight", "length": 600 },
+    { "type": "corner", "radius": 50, "angle": 90 },
+    { "type": "straight", "length": 500 },
+    { "type": "corner", "radius": 40, "angle": 70 }
+  ]
+}
+

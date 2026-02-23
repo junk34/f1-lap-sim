@@ -1,9 +1,9 @@
 {
   "name": "Gabriel Bortoleto",
-  "aggression": 0.74,
-  "tire_management": 0.69,
-  "fuel_saving": 0.68,
-  "wet_skill": 0.70,
-  "base_lap_time": 84.2,
-  "image_path": "images/drivers/bortoleto.webp"
+  "aggression": 0.80,
+  "tire_management": 0.70,
+  "fuel_saving": 0.69,
+  "wet_skill": 0.78,
+  "base_lap_time": 84.0,
+  "image_path": "images/drivers/bortoleto.jpg"
 }

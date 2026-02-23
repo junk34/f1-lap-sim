@@ -3,7 +3,17 @@
   "lap_distance": 4.304,
   "corners": 17,
   "drs_zones": 3,
-  "tire_wear_factor": 1.2,
-  "image_path": "images/track/mexico.webp"
+  "tire_wear_factor": 0.95,
+  "image_path": "images/track/mexico.webp",
+  "segments": [
+    { "type": "straight", "length": 1200 },
+    { "type": "corner", "radius": 60, "angle": 80 },
+    { "type": "straight", "length": 500 },
+    { "type": "corner", "radius": 50, "angle": 90 },
+    { "type": "straight", "length": 450 },
+    { "type": "corner", "radius": 40, "angle": 80 },
+    { "type": "straight", "length": 400 },
+    { "type": "corner", "radius": 35, "angle": 70 }
+  ]
 }
 

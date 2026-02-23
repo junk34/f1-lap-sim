@@ -1,10 +1,10 @@
 {
   "name": "Kimi Antonelli",
-  "aggression": 0.84,
-  "tire_management": 0.68,
-  "fuel_saving": 0.65,
-  "wet_skill": 0.70,
-  "base_lap_time": 83.7,
-  "image_path": "images/drivers/antoinelli.webp"
+  "aggression": 0.86,
+  "tire_management": 0.70,
+  "fuel_saving": 0.72,
+  "wet_skill": 0.84,
+  "base_lap_time": 82.8,
+  "image_path": "images/drivers/antonelli.webp"
 }
 

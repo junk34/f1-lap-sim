@@ -4,17 +4,26 @@ class LapSimulator:
         self.driver = driver
 
     def calculate_lap_time(self, tire_wear, fuel_load, weather="Clear"):
-        base_time = self.driver.get("base_lap_time", 90)
+        # Safely get base lap time with fallback
+        base_time = self.driver.get("base_lap_time", self.driver.get("base_time", 90))
         time = base_time
+
+        # Apply fuel and tire wear penalties
         time += fuel_load * 0.035
         time += tire_wear * 0.04
-        if weather == "Cloudy":
-            time += 0.5
-        elif weather == "Wet":
-            time += 2.5
-        elif weather == "Rain":
-            time += 4.0
-        elif weather == "Storm":
-            time += 6.0
-        return time
+
+        # Normalize weather input
+        weather = weather.strip().capitalize()
+
+        # Apply weather impact
+        weather_penalty = {
+            "Clear": 0.0,
+            "Cloudy": 0.5,
+            "Wet": 2.5,
+            "Rain": 4.0,
+            "Storm": 6.0
+        }
+        time += weather_penalty.get(weather, 0.0)
+
+        return round(time, 3)
 

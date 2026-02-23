@@ -1,10 +1,10 @@
 {
   "name": "Carlos Sainz",
-  "aggression": 0.80,
-  "tire_management": 0.77,
-  "fuel_saving": 0.74,
-  "wet_skill": 0.76,
-  "base_lap_time": 82.900,
+  "aggression": 0.78,
+  "tire_management": 0.84,
+  "fuel_saving": 0.82,
+  "wet_skill": 0.83,
+  "base_lap_time": 82.0,
   "image_path": "images/drivers/sainz.jpg"
 }
 

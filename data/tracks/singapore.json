@@ -1,0 +1,19 @@
+{
+  "name": "Marina Bay Street Circuit",
+  "lap_distance": 4.940,
+  "corners": 19,
+  "drs_zones": 2,
+  "tire_wear_factor": 1.20,
+  "image_path": "images/track/singapore.webp",
+  "segments": [
+    { "type": "straight", "length": 600 },
+    { "type": "corner", "radius": 40, "angle": 90 },
+    { "type": "straight", "length": 500 },
+    { "type": "corner", "radius": 35, "angle": 80 },
+    { "type": "straight", "length": 450 },
+    { "type": "corner", "radius": 30, "angle": 90 },
+    { "type": "straight", "length": 400 },
+    { "type": "corner", "radius": 35, "angle": 80 }
+  ]
+}
+
